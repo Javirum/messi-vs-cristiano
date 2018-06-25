@@ -96,6 +96,12 @@ function main () {
         else if (event.key === 's') {
           game.player.moveDown();
         }
+        else if (event.key === 'a') {
+            game.player.moveLeft();
+        }
+        else if (event.key === 'd') {
+            game.player.moveRight();
+        }
       }
     
       function playGame() {

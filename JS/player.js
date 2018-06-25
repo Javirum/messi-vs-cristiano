@@ -14,49 +14,47 @@ function Player (ctx) {
     }
 
     this.speed = 15;
-    this.lives = 0;
+    this.score = 0;
 }
 
-Player.prototype.draw = function () {
-    var self = this;
+// function drawSquare(x,y) {
+//     ctx.beginPath();
+//     ctx.rect(x,y, 50, 50);
+//     ctx.fillStyle = 'red';
+//     ctx.fill();
+//     ctx.closePath();
+    
+// }
 
+Player.prototype.draw = function (ctx) {
+    var self = this;
+    self.ctx.clearRect(0, 0, canvas.width, canvas.height);
     self.ctx.fillStyle = "red";
     self.ctx.fillRect (self.position.x, self.position.y, self.size.width, self.size.height);
-    //   self.ctx.beginPath();
-    //   self.ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-    //   self.ctx.fillStyle = 'green';
-    //   self.ctx.fill();
-    //   self.ctx.lineWidth = 5;
-    //   self.ctx.strokeStyle = '#003300';
-    //   self.ctx.stroke();
 }
 
 Player.prototype.moveUp = function () {
     var self = this;
-
     self.position.y -= self.speed;
 }
 
 Player.prototype.moveDown = function () {
     var self = this;
-
     self.position.y += self.speed;
 }
 
 Player.prototype.moveRight = function () {
     var self = this;
-
     self.position.x += self.speed;
 }
 
 Player.prototype.moveLeft = function () {
     var self = this;
-
-    self.prototype.x -= self.speed;
+    self.position.x -= self.speed;
 }
 
-Player.prototype.drawLives = function () {
+Player.prototype.drawScore = function () {
     var self = this;
 self.ctx.font= "16px Verdana"
-self.ctx.fillText(self.lives, 10, 30)
+self.ctx.fillText(self.score, 0, 0)
 }

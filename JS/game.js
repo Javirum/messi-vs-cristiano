@@ -15,43 +15,42 @@
         this.start();
         }
 
-    Game.prototype.checkIfEnded = function () {
-        var self = this;
+    // Game.prototype.checkIfEnded = function () {
+    //     var self = this;
     
-        if (self.score === 3) {
-            self.isEnded = true;
-            callback();
-            }}
+    //     if (self.score === 3) {
+    //         self.isEnded = true;
+    //         callback();
+    //         }}
 
+    Game.prototype.clearCanvas = function () {
+        var self = this;
+        self.ctx.clearRect (0, 0, self.canvas.width, self.canvas.height);
+        self.ctx.fillRect ()
+    }
+
+   
     Game.prototype.draw = function () {
         var self = this;
         self.player.draw();
     }
 
-    Game.prototype.clearCanvas = function () {
-        var self = this;
-        self.ctx.clearReact(0, 0, self.size.width, self.size.height);
-    }
-
     Game.prototype.start = function () {
         var self = this;
-    
         self.player = new Player(self.canvasCTX); 
         self.doFrame();
     }
 
+
     Game.prototype.doFrame = function () {
         var self = this;
-        
-        self.checkIfEnded;
-    
-        self.clearCanvas;
-    
-        // this.update();
+        // self.clearCanvas();
         self.draw();
+        // self.checkIfEnded;
+        // this.update();
+       
         
         window.requestAnimationFrame(function() {
-    
             if (!self.isEnded) {
             self.doFrame();
                 } 
