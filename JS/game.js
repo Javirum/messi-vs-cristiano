@@ -12,7 +12,7 @@
         this.callback = callback;
         this.isEnded = false;
         this.winner = null;
-        this.start;
+        this.start();
         }
 
     Game.prototype.checkIfEnded = function () {
@@ -36,23 +36,23 @@
     Game.prototype.start = function () {
         var self = this;
     
-        self.player = new this.player(self.ctx); 
+        self.player = new Player(self.canvasCTX); 
         self.doFrame();
     }
 
     Game.prototype.doFrame = function () {
         var self = this;
         
-        this.checkIfEnded;
+        self.checkIfEnded;
     
-        this.clearCanvas;
+        self.clearCanvas;
     
-        this.update();
-        this.draw();
+        // this.update();
+        self.draw();
         
         window.requestAnimationFrame(function() {
     
-            if (!this.isEnded) {
+            if (!self.isEnded) {
             self.doFrame();
                 } 
         })

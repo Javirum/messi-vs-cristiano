@@ -103,9 +103,9 @@ function main () {
         var canvasCtx = canvas.getContext('2d');
     
         game = new Game(canvasCtx, canvas, endGame);
-        var gameTime = setTimeout(function() {
-            endGame();
-        }, 1000);
+        // var gameTime = setTimeout(function() {
+        //     endGame();
+        // }, 1000);
     
         window.addEventListener('keyup', handleKeyUp)
     
