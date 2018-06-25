@@ -41,21 +41,34 @@ function main () {
     var container;
     var button;
     var canvas;
+    var coverImg;
+    // var game;
+    // var gameTest;
+    var header;
 
 function buildSplash () {
-    container = document.getElementById('game-container');
+    container = document.getElementById('game-container')
 
     button = document.createElement('button');
     button.setAttribute('id', 'btn-start');
-    button.innerText = 'Start Game!'
+    button.innerText = 'Kick Off!'
     container.appendChild(button);
+
+    // image = document.createElement('img');
+    // image.setAttribute('id', 'messiCristiano');
+    // container.appendChild(image);
 
     button.addEventListener('click', handleStartClick);
     };
 
 function handleStartClick() {
+    coverImg = document.getElementById('messiCristiano');
+    header = document.getElementById('title');
     button.removeEventListener('click', handleStartClick);
     button.remove();
+    coverImg.remove();
+    header.remove();
+    // image.remove();
     buildGame();
     }
 
@@ -63,11 +76,14 @@ function buildGame(){
     canvas = document.createElement('canvas');
     canvas.setAttribute('id', 'canvas');
     container.appendChild(canvas);
+
+    // canvas.style.backgroundImage = url('https://i.pinimg.com/564x/33/2c/23/332c23975491c635869b12c5d5953385.jpg')
+
     playGame();
     }
 
 function playGame() {
-    var canvasCTX = canvas.getContext('2d')
+    var canvasCTX = canvas.getContext('2d');
     var game = new Game(canvasCTX, canvas, endGame);
 
     var gameTest = setTimeout(function() {
