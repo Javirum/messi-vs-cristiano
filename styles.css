@@ -163,7 +163,7 @@ h1 {
 button {
     width: 200px;
     height: 40px;
-    background-color: white;
+    background-color: yellow;
     background-size: cover;
     color: black;
     border-radius: 50%;
@@ -187,12 +187,13 @@ button:hover {
     width: 200px;
     border-radius: 50%;
     border: 1px solid black;
+    background-color: white;
     background-image: url(images/noun_1787480_cc.svg);
     background-size: cover;
     position: absolute;
     top: 60%;
     left: 42%;
-    color: yellow;
+    color: red;
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
@@ -210,4 +211,10 @@ button:hover {
     background-size: cover;
     width: 100%;
     height: 80%;
+}
+
+/* Restart screen */
+
+#messiWins {
+    background-image: url('<iframe src="https://giphy.com/embed/3ohhwAADQcO4Ti5LSo" width="480" height="464" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/messi-lionel-lio-mess-3ohhwAADQcO4Ti5LSo">via GIPHY</a></p>')
 }
