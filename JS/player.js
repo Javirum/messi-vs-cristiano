@@ -1,60 +1,57 @@
-'use strict'
+"use strict";
 
-function Player (ctx) {
-    this.ctx = ctx;
-    
-    this.position = {
-        x: 20,
-        y: 20,
-    }
-
-    this.size = {
-        width: 20,
-        height: 60,
-    }
-
-    this.speed = 15;
-    this.score = 0;
+function Player(
+  ctx,
+  positionX,
+  positionY,
+  initialPositionX,
+  initialPositionY,
+  side
+) {
+  this.ctx = ctx;
+  this.positionX = positionX;
+  this.positionY = positionY;
+  this.initialPositionX = initialPositionX;
+  this.initialPositionY = initialPositionY;
+  this.width = 20;
+  this.height = 20;
+  this.speed = 15;
+  this.score = 0;
+  this.side = side;
 }
 
-// function drawSquare(x,y) {
-//     ctx.beginPath();
-//     ctx.rect(x,y, 50, 50);
-//     ctx.fillStyle = 'red';
-//     ctx.fill();
-//     ctx.closePath();
-    
-// }
-
-Player.prototype.draw = function (ctx) {
-    var self = this;
-    self.ctx.clearRect(0, 0, canvas.width, canvas.height);
+Player.prototype.draw = function() {
+  var self = this;
+  if (self.side === 'left') {
     self.ctx.fillStyle = "red";
-    self.ctx.fillRect (self.position.x, self.position.y, self.size.width, self.size.height);
-}
+  } else {
+    self.ctx.fillStyle = "blue";
+  }
+  self.ctx.fillRect(self.positionX, self.positionY, self.width, self.height);
+};
 
-Player.prototype.moveUp = function () {
-    var self = this;
-    self.position.y -= self.speed;
-}
+Player.prototype.moveUp = function() {
+  var self = this;
+  self.positionY -= self.speed;
+};
 
-Player.prototype.moveDown = function () {
-    var self = this;
-    self.position.y += self.speed;
-}
+Player.prototype.moveDown = function() {
+  var self = this;
+  self.positionY += self.speed;
+};
 
-Player.prototype.moveRight = function () {
-    var self = this;
-    self.position.x += self.speed;
-}
+Player.prototype.moveRight = function() {
+  var self = this;
+  self.positionX += self.speed;
+};
 
-Player.prototype.moveLeft = function () {
-    var self = this;
-    self.position.x -= self.speed;
-}
+Player.prototype.moveLeft = function() {
+  var self = this;
+  self.positionX -= self.speed;
+};
 
-Player.prototype.drawScore = function () {
-    var self = this;
-self.ctx.font= "16px Verdana"
-self.ctx.fillText(self.score, 0, 0)
-}
+Player.prototype.drawScore = function() {
+  var self = this;
+  self.ctx.font = "16px Verdana";
+  self.ctx.fillText(self.score, 0, 0);
+};

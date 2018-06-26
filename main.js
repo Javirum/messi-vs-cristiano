@@ -45,6 +45,10 @@ function main () {
     var container;
     var button;
     var canvas;
+    var canvasSize = {
+        width: 686,
+        height: 343
+    }
     var coverImg;
     var header;
     var game = null;
@@ -75,6 +79,8 @@ function main () {
     function buildGame(){
         canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'canvas');
+        canvas.setAttribute('width', canvasSize.width)
+        canvas.setAttribute('height', canvasSize.height)
         container.appendChild(canvas);
         playGame();
     }
@@ -91,17 +97,30 @@ function main () {
         // var self = this;
       
         if (event.key === 'w') {
-          game.player.moveUp();
+          game.player1.moveUp();
         }
         else if (event.key === 's') {
-          game.player.moveDown();
+          game.player1.moveDown();
         }
         else if (event.key === 'a') {
-            game.player.moveLeft();
+            game.player1.moveLeft();
         }
         else if (event.key === 'd') {
-            game.player.moveRight();
+            game.player1.moveRight();
         }
+
+        if (event.key === 'i') {
+            game.player2.moveUp();
+          }
+        else if (event.key === 'k') {
+            game.player2.moveDown();
+          }
+        else if (event.key === 'j') {
+              game.player2.moveLeft();
+          }
+        else if (event.key === 'l') {
+              game.player2.moveRight();
+          }
       }
     
       function playGame() {
