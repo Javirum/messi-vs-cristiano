@@ -34,13 +34,14 @@ Game.prototype.draw = function() {
   var self = this;
   self.player1.draw();
   self.player2.draw();
-  // self.ball.draw();
+  self.ball.draw();
 };
 
 Game.prototype.start = function() {
 	var self = this;
 	this.player1 = new Player(this.ctx, 150, 180, 20, 50, "left");
-  this.player2 = new Player(this.ctx, 520, 180, 30, 50, "right");
+	this.player2 = new Player(this.ctx, 520, 180, 30, 50, "right");
+	this.ball = new Ball(this.ctx, canvas.width, canvas.height);
   // self.player = new Player(self.canvasCTX);
   self.doFrame();
 };

@@ -13,8 +13,8 @@ function Player(
   this.positionY = positionY;
   this.initialPositionX = initialPositionX;
   this.initialPositionY = initialPositionY;
-  this.width = 20;
-  this.height = 20;
+  this.radius = 20;
+  this.arcStartAngle = 0;
   this.speed = 15;
   this.score = 0;
   this.side = side;
@@ -30,7 +30,7 @@ Player.prototype.draw = function() {
   //self.ctx.fillRect(self.positionX, self.positionY, self.width, self.height);
   
   self.ctx.beginPath();
-  self.ctx.arc(self.positionX, self.positionY, self.width, self.height, 2 * Math.PI);
+  self.ctx.arc(self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI);
   self.ctx.fill();
   self.ctx.closePath();
 };
