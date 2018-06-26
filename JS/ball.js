@@ -6,7 +6,8 @@ function Ball (ctx) {
     this.positionY = canvas.height / 2;
     this.radius = 10;
     this.arcStartAngle = 0,
-    this.speed = 30;
+    this.speedX = 5;
+    this.speedY = 5;
 }
 
 Ball.prototype.draw = function () {
@@ -22,6 +23,22 @@ Ball.prototype.draw = function () {
 
 Ball.prototype.move = function() {
     var self = this;
-    self.position.y -= self.speed;
-    self.position.x += self.speed;
+    self.positionY -= self.speedY;
+    self.positionX += self.speedX;
 }
+
+// Ball.prototype.detectBallColission = function () {
+//     var self = this;
+//   if (self.y <= 10 ){
+//     self.speedy *= -1;
+//   }
+//   else if (self.y + 10 >= canvas.height) {
+//     self.speedy = -self.speedy
+//   }
+//   else if (self.x <= 10) {
+//     self.speedx *= -1;
+//   }  
+//   else if (self.x + 10 >= canvas.width) {
+//     self.speedx = -self.speedx;
+//   }
+// }

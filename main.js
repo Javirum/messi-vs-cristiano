@@ -1,42 +1,42 @@
 'use strict'
 
-// var middle = document.getElementById("middle-bun");
-// var icon = document.getElementById("complete-icon");
-// var menu = document.querySelector(".menu-list");
+var middle = document.getElementById("middle-bun");
+var icon = document.getElementById("complete-icon");
+var menu = document.querySelector(".menu-list");
 
 
-// var deleteMiddle = function() {
-//     middle.classList.toggle("hidden-bun");
-//     updateTransition();
-//     menuTransition();
-// }
+var deleteMiddle = function() {
+    middle.classList.toggle("hidden-bun");
+    updateTransition();
+    menuTransition();
+}
 
-// icon.addEventListener('click', deleteMiddle);
+icon.addEventListener('click', deleteMiddle);
     
-// function updateTransition() {
-//     var top = document.querySelector("div.top-burguer");
-//     var bottom = document.querySelector("div.bottom-burguer");
-//     top.classList.toggle("rotate-top") 
-//     bottom.classList.toggle("rotate-bottom");
-//   }
+function updateTransition() {
+    var top = document.querySelector("div.top-burguer");
+    var bottom = document.querySelector("div.bottom-burguer");
+    top.classList.toggle("rotate-top") 
+    bottom.classList.toggle("rotate-bottom");
+  }
 
-// function displayMenu() {
-//     menu.classList.toggle("menu-hidden");
-// }  
+function displayMenu() {
+    menu.classList.toggle("menu-hidden");
+}  
 
-// icon.addEventListener('click', displayMenu);
+icon.addEventListener('click', displayMenu);
 
-// function menuTransition() {
-//     menu.classList.toggle("slide-menu");
-// }
+function menuTransition() {
+    menu.classList.toggle("slide-menu");
+}
 
-// icon.addEventListener('click', menuTransition);
+icon.addEventListener('click', menuTransition);
 
-// function createHtml(html) {
-//     var div = document.createElement("div");
-//     div.innerHTML = html;
-//     return div.children[0];
-//   } 
+function createHtml(html) {
+    var div = document.createElement("div");
+    div.innerHTML = html;
+    return div.children[0];
+  } 
 
 
 // // Canvas //
@@ -52,6 +52,7 @@ function main () {
     var coverImg;
     var header;
     var game = null;
+    var cristiano = document.getElementById('cristiano');
 
     function buildSplash () {
         container = document.getElementById('game-container')
