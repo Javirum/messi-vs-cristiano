@@ -47,7 +47,7 @@ Game.prototype.start = function() {
 
 Game.prototype.doFrame = function() {
   var self = this;
-  self.ctx.clearRect(0, 0, canvas.width, canvas.height);
+	self.ctx.clearRect(0, 0, canvas.width, canvas.height);
   self.draw();
   // self.checkIfEnded;
   // this.update();

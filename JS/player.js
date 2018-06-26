@@ -27,7 +27,12 @@ Player.prototype.draw = function() {
   } else {
     self.ctx.fillStyle = "blue";
   }
-  self.ctx.fillRect(self.positionX, self.positionY, self.width, self.height);
+  //self.ctx.fillRect(self.positionX, self.positionY, self.width, self.height);
+  
+  self.ctx.beginPath();
+  self.ctx.arc(self.positionX, self.positionY, self.width, self.height, 2 * Math.PI);
+  self.ctx.fill();
+  self.ctx.closePath();
 };
 
 Player.prototype.moveUp = function() {
