@@ -54,7 +54,8 @@ Game.prototype.doFrame = function() {
 	self.checkBallBounds();
 	// self.detectBallColission();
 	// Check Players Ball Collision -> Player vs ball
-  self.draw();
+	self.draw();
+	self.checkPlayerBallColission();
   self.checkIfEnded();
   this.update();
 
@@ -77,15 +78,6 @@ Game.prototype.doFrame = function() {
 // 		}
 // 	}
 	
-	// function collide (cir1, cir2) {
-	// 	var dx = (cir1.positionX - cir2.positionX) / (cir1.radius);
-	// 	var dy = (cir1.positionY - cir2.positionY) / (cir1.radius);
-	// 	cir2.speed = -dx;
-	// 	cir2.speed = -dy;
-	// 	cir1.speed = dx;
-	// 	cir1.speed = dy;
-	// }
-
 	// function getDistance(x1,y1,x2,y2){
 	// 	return Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2));
 	// }
@@ -131,35 +123,96 @@ Game.prototype.doFrame = function() {
 
 	Game.prototype.checkBallBounds= function() {
 
-	if(this.ball.positionX + this.ball.radius > canvas.width) {
+	if (this.ball.positionX + this.ball.radius > canvas.width) {
 		this.ball.positionX = canvas.width - this.ball.radius;
-		this.ball.speedX -= 5; 
+		this.ball.speedX -= 10; 
 	}
 
-	if(this.ball.positionX + this.ball.radius < 0) {
-		this.ball.positionX = 0 - this.ball.radius;
-		this.ball.speedX += 5;
+	if (this.ball.positionX + this.ball.radius < 0) {
+		this.ball.positionX = 0 + this.ball.radius;
+		this.ball.speedX += 10;
 	}
 
-	if(this.ball.positionY + this.ball.radius > canvas.height){
+	if (this.ball.positionY + this.ball.radius > canvas.height){
 		this.ball.positionY = canvas.height - this.ball.radius;
-		this.ball.speedY -= 5;
+		this.ball.speedY += 10;
 	}
 
 	if (this.ball.positionY - this.ball.radius < 0) {
 		this.ball.positionY = 0 + this.player1.radius;
-		this.ball.speedY += 5;
+		this.ball.speedY -= 10;
 	}
 	 }
 
+	Game.prototype.checkPlayerBallColission= function () {
+			var self = this;
+
+			// var p1_ball_distance = getDistance(self.player1.positionX, self.player1.positionY, self.ball.positionX, self.ball.positionY) - self.player1.radius - self.ball.radius;
+			
+			// if(p1_ball_distance < 0) {
+			// 	collide (ball, player1);
+			// }
+
+			// var p2_ball_distance = getDistance(self.player2.positionX, self.player2.positionY, self.ball.positionX, self.ball.positionY) - self.player2.radius - self.ball.radius;
+			// if(p2_ball_distance < 0) {
+			// 	collide(ball, player2);
+	// }
+		var player1LeftEdge = self.player1.positionX;
+		var player1RightEdge = self.player1.positionX + self.player1.radius;
+		var player1TopEdge = self.player1.positionY;
+		var player1BottomEdge = self.player1.positionY + self.player1.radius;
+
+		var player2LeftEdge = self.player2.positionX;
+		var player2RightEdge = self.player2.positionX + self.player2.radius;
+		var player2TopEdge = self.player2.positionY;
+		var player2BottomEdge = self.player2.positionY + self.player2.radius;
+
+		var ballLeftEdge = self.player2.positionX;
+		var ballRightEdge = self.player2.positionX + self.player2.radius;
+		var ballTopEdge = self.player2.positionY;
+		var ballBottomEdge = self.player2.positionY + self.player2.radius;
+
+		if (ballLeftEdge < player1LeftEdge && player1LeftEdge < ballRightEdge) {
+				if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
+			}
+				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
+			}
+		}
+
+		else if (ballLeftEdge < player1RightEdge && player1RightEdge < ballRightEdge) {
+				if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
+			}
+				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
+			}
+		}
+
+	
+
+
+
+		
+		// rREPEAT FOR PLAYER AND BALL
+
+
+
+		}
+
+	function collide (cir1, cir2) {
+		var dx = (cir1.positionX - cir2.positionX) / (cir1.radius);
+		var dy = (cir1.positionY - cir2.positionY) / (cir1.radius);
+		cir2.speed = -dx;
+		cir2.speed = -dy;
+		cir1.speed = dx;
+		cir1.speed = dy;
+	}
+
+	function getDistance(x1,y1,x2,y2){
+		return Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2));
+	}
+
 	Game.prototype.update = function () {
 		var self = this;
-    self.ball.move();
+		self.ball.move();
+    // self.ball.moveball();
 }
-	
-
-	
-	
-
-
 

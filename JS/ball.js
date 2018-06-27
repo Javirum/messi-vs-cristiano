@@ -8,6 +8,7 @@ function Ball (ctx) {
     this.arcStartAngle = 0,
     this.speedX = 5;
     this.speedY = 5;
+    this.decel = 0.1;
 }
 
 Ball.prototype.draw = function () {
@@ -26,6 +27,37 @@ Ball.prototype.move = function() {
     self.positionY -= self.speedY;
     self.positionX += self.speedX;
 }
+
+
+
+// Ball bounce
+
+// Ball.prototype.moveball = function () {
+    
+//     var self = this;
+// 	if (self.ctx.speedX !== 0) {
+// 		if (self.ctx.speedX > 0) {
+// 			self.ctx.speedX -= self.ctx.decel;
+// 			if(self.ctx.speedX < 0) self.ctx.speedX = 0;
+// 		} else {
+// 			self.ctx.speedX += self.ctx.decel;
+// 			if (self.ctx.speedX > 0) self.ctx.speedX = 0;
+// 		}
+// 	}
+    
+//     if (self.ctx.speedY !== 0) {
+        
+//         if(self.ctx.speedY > 0) {
+// 			self.ctx.speedY -= self.ctx.decel;
+// 			if (self.ctx.speedY < 0) self.ctx.speedY = 0;
+// 		} else {
+// 			self.ctx.speedY += self.ctx.decel;
+// 			if(self.ctx.speedY > 0) self.ctx.speedY = 0;
+// 		}
+// 	}
+// 	self.ctx.positionX += self.ctx.speedX;
+// 	self.ctx.positionY += self.ctx.speedY;
+// }
 
 // Ball.prototype.detectBallColission = function () {
 //     var self = this;
