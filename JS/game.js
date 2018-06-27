@@ -237,12 +237,24 @@ Game.prototype.doFrame = function() {
 		self.ball.move();
 }
 
+Game.prototype.score = function () {
+	if (this.ball.positionX + this.ball.radius > canvas.width) {
+		if (this.ball > 150 && this.ball < 350) {
+		console.log('GOOOOOOOOOL')
+		this.player1.score++
+		reset();
+	} 
+}
+}
+
+
+
 Game.prototype.reset = function () {
 	
 		var score1 = player1.score;
 		var score2 = player2.score;
-		player1 = new Player(100,250);
-		player1.score = score1;
+		this.player1.initialPositionX =  
+		this.player1.score = score1;
 		player2 = new Player(600,250);
 		player2.score = score2;
 		ball = new Ball(350,250);
@@ -255,3 +267,7 @@ Game.prototype.reset = function () {
 		leftDown = false;
 		rightDown = false;
 	}
+
+Game.prototype.handlelKeyUp = function() {
+
+}

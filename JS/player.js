@@ -15,7 +15,7 @@ function Player(
   this.initialPositionY = initialPositionY;
   this.radius = 20;
   this.arcStartAngle = 0;
-  this.speed = 20;
+  this.speed = 10;
   this.score = 0;
   this.side = side;
 }

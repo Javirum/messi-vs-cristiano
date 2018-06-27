@@ -63,22 +63,25 @@ Ball.prototype.move = function () {
 }
 
 
-Ball.prototype.score = function () {    
-    var self = this;
-    if(self.positionX + self.radius > canvas.width)
-    if(self.positionY > 150 && self.positionY < 350) {
-    player1.score++;
-    reset();
-    return;
-}
-ball.x = canvas.width - ball.size;
-ball.xVel *= -1.5;
-}
+// Ball.prototype.score = function () {    
+//     var self = this;
+//     if (self.positionX + self.radius <= 0) {
+//     console.log('touch left side')
+//     if(self.positionY > 150 && self.positionY < 350) {
+//     player1.score++;
+//     reset();
+//     return;
+// }
+// }
 
-if(self.positionX - self.radius < 0) {
-if(self.positionY > 150 && self.positionY < 350){
-    player2.score++;
-    reset();
+// ball.x = canvas.width - ball.size;
+// ball.xVel *= -1.5;
+// }
+
+// if(self.positionX - self.radius < 0) {
+// if(self.positionY > 150 && self.positionY < 350){
+//     player2.score++;
+//     reset();
     
-}
-}
+// }
+// }
