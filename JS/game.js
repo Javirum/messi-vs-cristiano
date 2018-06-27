@@ -55,6 +55,7 @@ Game.prototype.doFrame = function() {
 	// self.detectBallColission();
 	// Check Players Ball Collision -> Player vs ball
 	self.draw();
+	// self.ball.moveball();
 	self.checkPlayerBallColission();
   self.checkIfEnded();
   this.update();
@@ -146,26 +147,15 @@ Game.prototype.doFrame = function() {
 
 	Game.prototype.checkPlayerBallColission= function () {
 			var self = this;
-
-			// var p1_ball_distance = getDistance(self.player1.positionX, self.player1.positionY, self.ball.positionX, self.ball.positionY) - self.player1.radius - self.ball.radius;
-			
-			// if(p1_ball_distance < 0) {
-			// 	collide (ball, player1);
-			// }
-
-			// var p2_ball_distance = getDistance(self.player2.positionX, self.player2.positionY, self.ball.positionX, self.ball.positionY) - self.player2.radius - self.ball.radius;
-			// if(p2_ball_distance < 0) {
-			// 	collide(ball, player2);
-	// }
 		var player1LeftEdge = self.player1.positionX - self.player1.radius;
 		var player1RightEdge = self.player1.positionX + self.player1.radius;
 		var player1TopEdge = self.player1.positionY - self.player1.radius;
 		var player1BottomEdge = self.player1.positionY + self.player1.radius;
 
-		// var player2LeftEdge = self.player2.positionX;
-		// var player2RightEdge = self.player2.positionX + self.player2.radius;
-		// var player2TopEdge = self.player2.positionY;
-		// var player2BottomEdge = self.player2.positionY + self.player2.radius;
+		var player2LeftEdge = self.player2.positionX - self.player2.radius;;
+		var player2RightEdge = self.player2.positionX + self.player2.radius;
+		var player2TopEdge = self.player2.positionY - self.player1.radius;;
+		var player2BottomEdge = self.player2.positionY + self.player2.radius;
 
 		var ballLeftEdge = self.ball.positionX - self.ball.radius;
 		var ballRightEdge = self.ball.positionX + self.ball.radius;
@@ -197,6 +187,32 @@ Game.prototype.doFrame = function() {
 					self.ball.speedX = 1
 			}
 		}
+
+		if (ballLeftEdge < player2LeftEdge && player2LeftEdge < ballRightEdge) {
+			if (ballTopEdge < player2TopEdge && player2TopEdge < ballBottomEdge) {
+				console.log('collision lt')
+						self.ball.speedY = -1
+						self.ball.speedX = -1
+			}
+				if (ballTopEdge < player2BottomEdge && player2BottomEdge < ballBottomEdge) {
+					console.log('collision lb')
+					self.ball.speedY = 1
+					self.ball.speedX = -1
+			}
+		}
+
+		else if (ballLeftEdge < player2RightEdge && player2RightEdge < ballRightEdge) {
+			if (ballTopEdge < player2TopEdge && player2TopEdge < ballBottomEdge) {
+				console.log('collision rt')
+					self.ball.speedY = -1
+					self.ball.speedX = 1
+			}
+				if (ballTopEdge < player2BottomEdge && player2BottomEdge < ballBottomEdge) {
+					console.log('collision rb')
+					self.ball.speedY = 1
+					self.ball.speedX = 1
+			}
+		}
 		}
 
 	function collide (cir1, cir2) {
@@ -215,6 +231,6 @@ Game.prototype.doFrame = function() {
 	Game.prototype.update = function () {
 		var self = this;
 		self.ball.move();
-    // self.ball.moveball();
+    
 }
 

@@ -30,31 +30,31 @@ Ball.prototype.move = function() {
 
 // Ball bounce
 
-Ball.prototype.moveball = function () {
+// Ball.prototype.moveball = function () {
     
-    var self = this;
-	if (self.ctx.speedX !== 0) {
-		if (self.ctx.speedX > 0) {
-			self.ctx.speedX -= self.ctx.decel;
-			if(self.ctx.speedX < 0) self.ctx.speedX = 0;
-		} else {
-			self.ctx.speedX += self.ctx.decel;
-			if (self.ctx.speedX > 0) self.ctx.speedX = 0;
-		}
-	}
+//     var self = this;
+// 	if (self.ball.speedX !== 0) {
+// 		if (self.ball.speedX > 0) {
+// 			self.ball.speedX - self.ball.decel;
+// 			if (self.ball.speedX < 0) self.ball.speedX = 0;
+// 		} else {
+// 			self.ball.speedX += self.ball.decel;
+// 			if (self.ball.speedX > 0) self.ball.speedX = 0;
+// 		}
+// 	}
     
-    if (self.ctx.speedY !== 0) {
+//     if (self.ball.speedY !== 0) {
         
-        if(self.ctx.speedY > 0) {
-			self.ctx.speedY -= self.ctx.decel;
-			if (self.ctx.speedY < 0) self.ctx.speedY = 0;
-		} else {
-			self.ctx.speedY += self.ctx.decel;
-			if(self.ctx.speedY > 0) self.ctx.speedY = 0;
-		}
-	}
-	self.ctx.positionX += self.ctx.speedX;
-	self.ctx.positionY += self.ctx.speedY;
-}
+//         if(self.ball.speedY > 0) {
+// 			self.ball.speedY -= self.ball.decel;
+// 			if (self.ball.speedY < 0) self.ball.speedY = 0;
+// 		} else {
+// 			self.ball.speedY += self.ball.decel;
+// 			if(self.ball.speedY > 0) self.ball.speedY = 0;
+// 		}
+// 	}
+// 	self.ball.positionX += self.ball.speedX;
+// 	self.ball.positionY += self.ball.speedY;
+// }
 
 
