@@ -123,6 +123,10 @@ function main () {
               game.player2.moveRight();
           }
       }
+
+      function keyDictionary() {
+        
+      }
     
       function playGame() {
     

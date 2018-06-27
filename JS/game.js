@@ -163,57 +163,60 @@ Game.prototype.doFrame = function() {
 		var ballTopEdge = self.ball.positionY - self.ball.radius;
 		var ballBottomEdge = self.ball.positionY + self.ball.radius;
 
-		if (ballLeftEdge < player1LeftEdge && player1LeftEdge < ballRightEdge) {
-			if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
+		if (player1LeftEdge <= ballLeftEdge && ballLeftEdge <= player1RightEdge) {
+			console.log('l')
+			if (player1TopEdge <= ballTopEdge && ballTopEdge <= player1BottomEdge) {
 				console.log('collision lt')
-						self.ball.speedY = -self.ballSpeed
-						self.ball.speedX = -self.ballSpeed
+				self.ball.speedY = self.ballSpeed
+				self.ball.speedX = self.ballSpeed
+			} else if (player1TopEdge <= ballBottomEdge && ballBottomEdge <= player1BottomEdge) {
+				console.log('collision lb')
+				self.ball.speedY = -self.ballSpeed
+				self.ball.speedX = self.ballSpeed
 			}
-				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
-					console.log('collision lb')
-					self.ball.speedY = self.ballSpeed
+		}
+		
+		else if (player1LeftEdge <= ballRightEdge && ballRightEdge <= player1RightEdge) {
+			console.log('r')
+			if (player1TopEdge <= ballTopEdge && ballTopEdge <= player1BottomEdge) {
+				console.log('collision rt')
+				self.ball.speedY = self.ballSpeed
+				self.ball.speedX = -self.ballSpeed
+			} else if (player1TopEdge <= ballBottomEdge && ballBottomEdge <= player1BottomEdge) {
+					console.log('collision rb')
+					self.ball.speedY = -self.ballSpeed
 					self.ball.speedX = -self.ballSpeed
 			}
 		}
 
-		else if (ballLeftEdge < player1RightEdge && player1RightEdge < ballRightEdge) {
-			if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
-				console.log('collision rt')
-					self.ball.speedY = -self.ballSpeed
-					self.ball.speedX = self.ballSpeed
-			}
-				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
-					console.log('collision rb')
-					self.ball.speedY = self.ballSpeed
-					self.ball.speedX = self.ballSpeed
+		if (player2LeftEdge <= ballLeftEdge && ballLeftEdge <= player2RightEdge) {
+			console.log('l')
+			if (player2TopEdge <= ballTopEdge && ballTopEdge <= player2BottomEdge) {
+				console.log('collision lt')
+				self.ball.speedY = self.ballSpeed
+				self.ball.speedX = self.ballSpeed
+			} else if (player2TopEdge <= ballBottomEdge && ballBottomEdge <= player2BottomEdge) {
+				console.log('collision lb')
+				self.ball.speedY = -self.ballSpeed
+				self.ball.speedX = self.ballSpeed
 			}
 		}
-
-		if (ballLeftEdge < player2LeftEdge && player2LeftEdge < ballRightEdge) {
-			if (ballTopEdge < player2TopEdge && player2TopEdge < ballBottomEdge) {
-				console.log('collision lt')
-						self.ball.speedY = -self.ballSpeed
-						self.ball.speedX = -self.ballSpeed
-			}
-				if (ballTopEdge < player2BottomEdge && player2BottomEdge < ballBottomEdge) {
-					console.log('collision lb')
-					self.ball.speedY = self.ballSpeed
+		
+		else if (player2LeftEdge <= ballRightEdge && ballRightEdge <= player2RightEdge) {
+			console.log('r')
+			if (player2TopEdge <= ballTopEdge && ballTopEdge <= player2BottomEdge) {
+				console.log('collision rt')
+				self.ball.speedY = self.ballSpeed
+				self.ball.speedX = -self.ballSpeed
+			} else if (player2TopEdge <= ballBottomEdge && ballBottomEdge <= player2BottomEdge) {
+					console.log('collision rb')
+					self.ball.speedY = -self.ballSpeed
 					self.ball.speedX = -self.ballSpeed
 			}
 		}
 
-		else if (ballLeftEdge < player2RightEdge && player2RightEdge < ballRightEdge) {
-			if (ballTopEdge < player2TopEdge && player2TopEdge < ballBottomEdge) {
-				console.log('collision rt')
-					self.ball.speedY = -self.ballSpeed
-					self.ball.speedX = self.ballSpeed
-			}
-				if (ballTopEdge < player2BottomEdge && player2BottomEdge < ballBottomEdge) {
-					console.log('collision rb')
-					self.ball.speedY = self.ballSpeed
-					self.ball.speedX = self.ballSpeed
-			}
-		}
+		
+
 		}
 
 	function collide (cir1, cir2) {
@@ -232,6 +235,23 @@ Game.prototype.doFrame = function() {
 	Game.prototype.update = function () {
 		var self = this;
 		self.ball.move();
-    
 }
 
+Game.prototype.reset = function () {
+	
+		var score1 = player1.score;
+		var score2 = player2.score;
+		player1 = new Player(100,250);
+		player1.score = score1;
+		player2 = new Player(600,250);
+		player2.score = score2;
+		ball = new Ball(350,250);
+		wDown = false;
+		sDown = false;
+		aDown = false;
+		dDown = false;
+		upDown = false;
+		downDown = false;
+		leftDown = false;
+		rightDown = false;
+	}
