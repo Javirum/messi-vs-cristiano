@@ -6,8 +6,8 @@ function Ball (ctx) {
     this.positionY = canvas.height / 2;
     this.radius = 10;
     this.arcStartAngle = 0,
-    this.speedX = 5;
-    this.speedY = 5;
+    this.speedX = 1;
+    this.speedY = 1;
     this.decel = 0.1;
 }
 
