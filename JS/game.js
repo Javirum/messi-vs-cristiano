@@ -13,7 +13,8 @@ function Game(ctx, canvas, callback) {
   this.callback = callback;
   this.isEnded = false;
   this.winner = null;
-  this.start();
+	this.start();
+	this.ballSpeed = 5;
 }
 
 Game.prototype.checkIfEnded = function () {
@@ -165,52 +166,52 @@ Game.prototype.doFrame = function() {
 		if (ballLeftEdge < player1LeftEdge && player1LeftEdge < ballRightEdge) {
 			if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
 				console.log('collision lt')
-						self.ball.speedY = -1
-						self.ball.speedX = -1
+						self.ball.speedY = -self.ballSpeed
+						self.ball.speedX = -self.ballSpeed
 			}
 				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
 					console.log('collision lb')
-					self.ball.speedY = 1
-					self.ball.speedX = -1
+					self.ball.speedY = self.ballSpeed
+					self.ball.speedX = -self.ballSpeed
 			}
 		}
 
 		else if (ballLeftEdge < player1RightEdge && player1RightEdge < ballRightEdge) {
 			if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
 				console.log('collision rt')
-					self.ball.speedY = -1
-					self.ball.speedX = 1
+					self.ball.speedY = -self.ballSpeed
+					self.ball.speedX = self.ballSpeed
 			}
 				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
 					console.log('collision rb')
-					self.ball.speedY = 1
-					self.ball.speedX = 1
+					self.ball.speedY = self.ballSpeed
+					self.ball.speedX = self.ballSpeed
 			}
 		}
 
 		if (ballLeftEdge < player2LeftEdge && player2LeftEdge < ballRightEdge) {
 			if (ballTopEdge < player2TopEdge && player2TopEdge < ballBottomEdge) {
 				console.log('collision lt')
-						self.ball.speedY = -1
-						self.ball.speedX = -1
+						self.ball.speedY = -self.ballSpeed
+						self.ball.speedX = -self.ballSpeed
 			}
 				if (ballTopEdge < player2BottomEdge && player2BottomEdge < ballBottomEdge) {
 					console.log('collision lb')
-					self.ball.speedY = 1
-					self.ball.speedX = -1
+					self.ball.speedY = self.ballSpeed
+					self.ball.speedX = -self.ballSpeed
 			}
 		}
 
 		else if (ballLeftEdge < player2RightEdge && player2RightEdge < ballRightEdge) {
 			if (ballTopEdge < player2TopEdge && player2TopEdge < ballBottomEdge) {
 				console.log('collision rt')
-					self.ball.speedY = -1
-					self.ball.speedX = 1
+					self.ball.speedY = -self.ballSpeed
+					self.ball.speedX = self.ballSpeed
 			}
 				if (ballTopEdge < player2BottomEdge && player2BottomEdge < ballBottomEdge) {
 					console.log('collision rb')
-					self.ball.speedY = 1
-					self.ball.speedX = 1
+					self.ball.speedY = self.ballSpeed
+					self.ball.speedX = self.ballSpeed
 			}
 		}
 		}
