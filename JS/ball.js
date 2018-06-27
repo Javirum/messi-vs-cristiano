@@ -6,8 +6,8 @@ function Ball (ctx) {
     this.positionY = canvas.height / 2;
     this.radius = 10;
     this.arcStartAngle = 0,
-    this.speedX = 1;
-    this.speedY = 1;
+    this.speedX = 0;
+    this.speedY = 0;
     this.decel = 0.1;
 }
 
@@ -24,53 +24,37 @@ Ball.prototype.draw = function () {
 
 Ball.prototype.move = function() {
     var self = this;
-    self.positionY -= self.speedY;
+    self.positionY += self.speedY;
     self.positionX += self.speedX;
 }
 
-
-
 // Ball bounce
 
-// Ball.prototype.moveball = function () {
+Ball.prototype.moveball = function () {
     
-//     var self = this;
-// 	if (self.ctx.speedX !== 0) {
-// 		if (self.ctx.speedX > 0) {
-// 			self.ctx.speedX -= self.ctx.decel;
-// 			if(self.ctx.speedX < 0) self.ctx.speedX = 0;
-// 		} else {
-// 			self.ctx.speedX += self.ctx.decel;
-// 			if (self.ctx.speedX > 0) self.ctx.speedX = 0;
-// 		}
-// 	}
+    var self = this;
+	if (self.ctx.speedX !== 0) {
+		if (self.ctx.speedX > 0) {
+			self.ctx.speedX -= self.ctx.decel;
+			if(self.ctx.speedX < 0) self.ctx.speedX = 0;
+		} else {
+			self.ctx.speedX += self.ctx.decel;
+			if (self.ctx.speedX > 0) self.ctx.speedX = 0;
+		}
+	}
     
-//     if (self.ctx.speedY !== 0) {
+    if (self.ctx.speedY !== 0) {
         
-//         if(self.ctx.speedY > 0) {
-// 			self.ctx.speedY -= self.ctx.decel;
-// 			if (self.ctx.speedY < 0) self.ctx.speedY = 0;
-// 		} else {
-// 			self.ctx.speedY += self.ctx.decel;
-// 			if(self.ctx.speedY > 0) self.ctx.speedY = 0;
-// 		}
-// 	}
-// 	self.ctx.positionX += self.ctx.speedX;
-// 	self.ctx.positionY += self.ctx.speedY;
-// }
+        if(self.ctx.speedY > 0) {
+			self.ctx.speedY -= self.ctx.decel;
+			if (self.ctx.speedY < 0) self.ctx.speedY = 0;
+		} else {
+			self.ctx.speedY += self.ctx.decel;
+			if(self.ctx.speedY > 0) self.ctx.speedY = 0;
+		}
+	}
+	self.ctx.positionX += self.ctx.speedX;
+	self.ctx.positionY += self.ctx.speedY;
+}
 
-// Ball.prototype.detectBallColission = function () {
-//     var self = this;
-//   if (self.y <= 10 ){
-//     self.speedy *= -1;
-//   }
-//   else if (self.y + 10 >= canvas.height) {
-//     self.speedy = -self.speedy
-//   }
-//   else if (self.x <= 10) {
-//     self.speedx *= -1;
-//   }  
-//   else if (self.x + 10 >= canvas.width) {
-//     self.speedx = -self.speedx;
-//   }
-// }
+

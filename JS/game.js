@@ -173,24 +173,28 @@ Game.prototype.doFrame = function() {
 		var ballBottomEdge = self.ball.positionY + self.ball.radius;
 
 		if (ballLeftEdge < player1LeftEdge && player1LeftEdge < ballRightEdge) {
-			console.log('collision')
-				if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
-
+			if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
+				console.log('collision lt')
+						self.ball.speedY = -1
+						self.ball.speedX = -1
 			}
 				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
-										console.log('collision')
-
+					console.log('collision lb')
+					self.ball.speedY = 1
+					self.ball.speedX = -1
 			}
 		}
 
 		else if (ballLeftEdge < player1RightEdge && player1RightEdge < ballRightEdge) {
-			console.log('collision')
-				if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
-
+			if (ballTopEdge < player1TopEdge && player1TopEdge < ballBottomEdge) {
+				console.log('collision rt')
+					self.ball.speedY = -1
+					self.ball.speedX = 1
 			}
 				if (ballTopEdge < player1BottomEdge && player1BottomEdge < ballBottomEdge) {
-										console.log('collision')
-
+					console.log('collision rb')
+					self.ball.speedY = 1
+					self.ball.speedX = 1
 			}
 		}
 		}
