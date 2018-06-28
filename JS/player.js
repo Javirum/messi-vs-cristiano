@@ -11,11 +11,11 @@ function Player(
   this.ctx = ctx;
   this.positionX = positionX;
   this.positionY = positionY;
-  this.initialPositionX = initialPositionX;
-  this.initialPositionY = initialPositionY;
+  this.initialPositionX = positionX;
+  this.initialPositionY = positionY;
   this.radius = 20;
   this.arcStartAngle = 0;
-  this.speed = 10;
+  this.speed = 25;
   this.score = 0;
   this.side = side;
 }
@@ -74,4 +74,9 @@ Player.prototype.drawScore = function() {
   var self = this;
   self.ctx.font = "16px Verdana";
   self.ctx.fillText(self.score, 0, 0);
+};
+
+Player.prototype.reset = function() {
+    this.positionX = this.initialPositionX;
+    this.positionY = this.initialPositionY;
 };

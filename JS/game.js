@@ -126,13 +126,18 @@ Game.prototype.doFrame = function() {
 	Game.prototype.checkBallBounds= function() {
 
 	if (this.ball.positionX + this.ball.radius > canvas.width) {
-		this.ball.positionX = canvas.width - this.ball.radius;
-		this.ball.speedX = -this.ball.speedX; 
+		// if (this.ball.positionY > 20 && this.ball.positionY < canvas.height - 20) {
+		this.player1.score ++;
+		this.reset();
+		// this.ball.positionX = canvas.width - this.ball.radius;
+		// this.ball.speedX = -this.ball.speedX; 
 	}
 
-	if (this.ball.positionX + this.ball.radius < 0) {
-		this.ball.positionX = 0 + this.ball.radius;
-		this.ball.speedX = -this.ball.speedX;
+	if (this.ball.positionX - this.ball.radius < 0) {
+		this.player2.score ++;
+		this.reset();
+		// this.ball.positionX = 0 + this.ball.radius;
+		// this.ball.speedX = -this.ball.speedX;
 	}
 
 	if (this.ball.positionY + this.ball.radius > canvas.height){
@@ -198,7 +203,7 @@ Game.prototype.doFrame = function() {
 			} else if (player2TopEdge <= ballBottomEdge && ballBottomEdge <= player2BottomEdge) {
 				console.log('collision lb')
 				self.ball.speedY = -self.ballSpeed
-				self.ball.speedX = self.ballSpeed
+				self.ball.speedX = -self.ballSpeed
 			}
 		}
 		
@@ -237,37 +242,42 @@ Game.prototype.doFrame = function() {
 		self.ball.move();
 }
 
-Game.prototype.score = function () {
-	if (this.ball.positionX + this.ball.radius > canvas.width) {
-		if (this.ball > 150 && this.ball < 350) {
-		console.log('GOOOOOOOOOL')
-		this.player1.score++
-		reset();
-	} 
-}
-}
+// Game.prototype.score = function () {
+// 	if (this.ball.positionX + this.ball.radius <= 0) {
+// 		// if (this.ball > 150 && this.ball < 350) {
+// 		console.log('GOOOOOOOOOL')
+// 		this.player2.score++
+// 		reset();
+// 	} 
+// 	if (this.ball.positionX + this.ball.radius >= canvas.width) {
+// 		// if (this.ball > 150 && this.ball < 350) {
+// 		console.log('GOOOOOOOOOL')
+// 		this.player1.score++
+// 		reset();
+// 	} 
+// }
 
 
 
 Game.prototype.reset = function () {
 	
-		var score1 = player1.score;
-		var score2 = player2.score;
-		this.player1.initialPositionX =  
-		this.player1.score = score1;
-		player2 = new Player(600,250);
-		player2.score = score2;
-		ball = new Ball(350,250);
-		wDown = false;
-		sDown = false;
-		aDown = false;
-		dDown = false;
-		upDown = false;
-		downDown = false;
-		leftDown = false;
-		rightDown = false;
-	}
-
-Game.prototype.handlelKeyUp = function() {
-
+		this.player1.reset();
+		this.player2.reset();
+		this.ball.reset();
 }
+
+// Game.prototype.win = function () {
+// 	if (player1.score === 3) {
+// 		endGame();
+// 	} 
+	
+// 	if (player2.score === 3) {
+// 		endGame();
+// }
+
+		
+	
+
+// Game.prototype.handlelKeyUp = function() {
+
+// }

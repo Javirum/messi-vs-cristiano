@@ -65,6 +65,7 @@ function main () {
     var player1Commands;
     var player2Commands;
     var player2Inst;
+    var instructionsContainer;
 
     function buildSplash () {
         container = document.getElementById('game-container')
@@ -114,11 +115,15 @@ function main () {
         instructionsHeader = document.createElement('h1');
         instructionsHeader.innerText = 'Instructions';
         container.appendChild(instructionsHeader);
+
+        instructionsContainer = document.createElement('div');
+        instructionsContainer.setAttribute('id', 'inst-container');
+        instructionsHeader.appendChild(instructionsContainer);
        
         player1Inst = document.createElement('ul');
         player1Inst.setAttribute('id', 'instructions-list');
         player1Inst.innerText = 'Plaver 1:';
-        instructionsHeader.appendChild(player1Inst);
+        instructionsContainer.appendChild(player1Inst);
         player1Commands = document.createElement('li');
         player1Commands.setAttribute('class', 'player1-instructions-list');
         player1Commands.innerText = 'Move up: W';
@@ -145,15 +150,15 @@ function main () {
         player2Commands.innerText = 'Move up: I';
         player2Inst.appendChild(player2Commands);
         player2Commands = document.createElement('li');
-        player2Commands.setAttribute('class', 'player1-instructions-list');
+        player2Commands.setAttribute('class', 'player2-instructions-list');
         player2Commands.innerText = 'Move down: K';
         player2Inst.appendChild(player2Commands);
         player2Commands = document.createElement('li');
-        player2Commands.setAttribute('class', 'player1-instructions-list');
+        player2Commands.setAttribute('class', 'player2-instructions-list');
         player2Commands.innerText = 'Move left: L';
         player2Inst.appendChild(player2Commands);
         player2Commands = document.createElement('li');
-        player2Commands.setAttribute('class', 'player1-instructions-list');
+        player2Commands.setAttribute('class', 'player2-instructions-list');
         player2Commands.innerText = 'Move right: J';
         player2Inst.appendChild(player2Commands);
 

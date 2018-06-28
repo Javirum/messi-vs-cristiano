@@ -139,7 +139,7 @@ li:hover {
 #canvas {
     border: 1px solid black;
     margin-top: 50px;
-    background-image: url('images/Diseño\ sin\ título.png');
+    background-image: url('images/Diseño\ sin\ título\ \(1\).png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -160,6 +160,33 @@ h1 {
     color: white;
     font-size: 2em;
     color: yellow;
+}
+
+/* .player1-instructions-list {
+    margin-bottom: 20px;
+}
+
+.player2-instructions-list {
+    position: absolute;
+    left: 25%;
+    animation: none;
+} */
+
+/* .player2-instructions-list {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+} */
+
+#instructions-list {
+    margin-bottom: 20px;
+}
+
+#back-button {
+    position: absolute;
+    top: 80%;
+    left: 42%;
+
 }
 
 button {

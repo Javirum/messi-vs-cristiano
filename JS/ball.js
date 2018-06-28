@@ -62,6 +62,12 @@ Ball.prototype.move = function () {
 	self.positionY += self.speedY;
 }
 
+Ball.prototype.reset = function() {
+    this.positionX = canvas.width / 2;
+    this.positionY = canvas.height / 2;
+    this.speedX = 0;
+    this.speedY = 0;
+};
 
 // Ball.prototype.score = function () {    
 //     var self = this;
