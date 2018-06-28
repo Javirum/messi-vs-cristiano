@@ -18,12 +18,15 @@ function Game(ctx, canvas, callback) {
 }
 
 Game.prototype.checkIfEnded = function () {
-    var self = this;
-
-    if (self.score === 3) {
-        self.isEnded = true;
-        callback();
-        }}
+	var self = this;
+		
+  if (self.player1.score === 3) {
+    self.isEnded = true;
+    this.callback('player1');
+	} else if (self.player2.score === 3) { 
+		this.callback('player2')
+	}
+}
 
 Game.prototype.clearCanvas = function() {
   var self = this;

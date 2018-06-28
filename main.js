@@ -40,6 +40,9 @@ function createHtml(html) {
 
 
 // // Canvas //
+ 
+    var container;
+    
 
 function main () {
     var container;
@@ -67,6 +70,17 @@ function main () {
     var player2Inst;
     var instructionsContainer;
     var stadiumImg;
+    var messiWins;
+    var cristianoWins;
+    var mBackButton;
+    var cBackButton;
+    var cristiano;
+    var messi;
+    var cristianoImg;
+    var messiImg;
+    var stadium;
+    
+   
 
     function buildSplash () {
         container = document.getElementById('game-container')
@@ -190,12 +204,24 @@ function main () {
     // Game Screen
 
     function buildGame(){
+        stadium = document.createElement('div');
+        stadium.setAttribute('id', 'stadium-img');
+        container.appendChild(stadium);
+
+        stadiumImg = document.createElement('img');
+        stadiumImg.setAttribute('src', './images/Diseño sin título (2).png');
+        stadiumImg.setAttribute('height', '650')
+        stadiumImg.setAttribute('width', '1600')
+        stadium.appendChild(stadiumImg);
+    
         canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'canvas');
         canvas.setAttribute('width', canvasSize.width)
         canvas.setAttribute('height', canvasSize.height)
         container.appendChild(canvas);
         container.setAttribute('color', 'black');
+        // cristiano.remove();
+        // messi.remove();
 
         // stadiumImg = document.createElement('img');
         // stadiumImg.setAttribute('id', 'stadium');
@@ -315,8 +341,13 @@ function main () {
 
     // Destroys Game
 
-    function endGame() {
+    function endGame(winner) {
         canvas.remove();
+        if (winner === 'player1') {
+            cristianoWins();
+        } else {
+            messiWins();
+        }
         // game = null;
         buildGameOver();
     }
@@ -331,6 +362,44 @@ function main () {
         button.addEventListener('click', destroyGameOver);
     }
 
+    function messiWins() {
+        stadium.remove();
+        messi = document.createElement('div');
+        messi.setAttribute('id', 'messi-wins');
+        container.appendChild(messi);
+
+        messiImg = document.createElement('img');
+        messiImg.setAttribute('src', 'https://media.giphy.com/media/IpKxfPy33hMRy/giphy.gif');
+        messiImg.setAttribute('height', '700')
+        messiImg.setAttribute('width', '1300')
+        messi.appendChild(messiImg);
+    
+        mBackButton = document.createElement('button');
+        mBackButton.setAttribute('id', 'C-back-button');
+        mBackButton.innerText = 'RESTART!'
+        messi.appendChild(mBackButton);
+        mBackButton.addEventListener('click', buildGame);
+    }
+
+    function cristianoWins() {
+        stadium.remove();
+        cristiano = document.createElement('div');
+        cristiano.setAttribute('id', 'cristiano-wins');
+        container.appendChild(cristiano);
+
+        cristianoImg = document.createElement('img');
+        cristianoImg.setAttribute('src', 'https://media.giphy.com/media/xT1XGVp95GDPgFYmUE/giphy.gif');
+        cristianoImg.setAttribute('height', '800')
+        cristianoImg.setAttribute('width', '1300')
+        cristiano.appendChild(cristianoImg);
+    
+        cBackButton = document.createElement('button');
+        cBackButton.setAttribute('id', 'C-back-button');
+        cBackButton.innerText = 'RESTART!'
+        cristiano.appendChild(cBackButton);
+        cBackButton.addEventListener('click', buildGame);
+    }
+
     function destroyGameOver() {
         button.remove();
         // gameOver.remove();
@@ -341,3 +410,4 @@ function main () {
 }
 
 window.addEventListener('load', main);
+
