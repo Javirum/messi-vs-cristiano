@@ -142,6 +142,9 @@ li:hover {
     background-image: url('images/Diseño\ sin\ título\ \(1\).png');
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 22%;
 }
 
 /* .body-container {
@@ -149,9 +152,13 @@ min-height:100%;
 position:relative;
 } */
 
+
 .container {
     margin-bottom: 100px;
+    background-color: black;
 }
+
+
 
 h1 {
     position: absolute;

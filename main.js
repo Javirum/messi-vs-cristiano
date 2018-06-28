@@ -66,6 +66,7 @@ function main () {
     var player2Commands;
     var player2Inst;
     var instructionsContainer;
+    var stadiumImg;
 
     function buildSplash () {
         container = document.getElementById('game-container')
@@ -194,6 +195,14 @@ function main () {
         canvas.setAttribute('width', canvasSize.width)
         canvas.setAttribute('height', canvasSize.height)
         container.appendChild(canvas);
+        container.setAttribute('color', 'black');
+
+        // stadiumImg = document.createElement('img');
+        // stadiumImg.setAttribute('id', 'stadium');
+        // stadiumImg.setAttribute('src', '../module-one-first-project/images/willian-justen-de-vasconcellos-587601-unsplash.jpg')
+        // // canvas.setAttribute('width', '100%')
+        // // canvas.setAttribute('height', '100%')
+        // container.appendChild(stadiumImg);
         playGame();
     }
 
