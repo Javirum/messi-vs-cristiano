@@ -255,10 +255,31 @@ button:hover {
     background-repeat: no-repeat;
 }
 
-#score {
+#cristiano-score {
     position: absolute;
     top: 10%;
-    left: 30%;
+    left: 25%;
+    color: yellow;
+}
+
+#messi-score {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    color: yellow;
+}
+
+#cristiano-gol {
+    position: absolute;
+    top: 15%;
+    left: 32%;
+    color: yellow;
+}
+
+#messi-gol {
+    position: absolute;
+    top: 15%;
+    left: 64%;
     color: yellow;
 }
 

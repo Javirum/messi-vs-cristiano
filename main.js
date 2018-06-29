@@ -80,6 +80,10 @@ function main () {
     var messiImg;
     var stadium;
     var score;
+    var scoreC;
+    var scoreM;
+    var golC;
+    var golM;
     
    
 
@@ -222,16 +226,25 @@ function main () {
         container.appendChild(canvas);
         
         container.setAttribute('color', 'black');
-        score = document.createElement('h2');
-        score.setAttribute('id', 'score');
-        score.innerText = 'Cristiano | Messi';
-        container.appendChild(score);
+        scoreC = document.createElement('h2');
+        scoreC.setAttribute('id', 'cristiano-score');
+        scoreC.innerText = 'Cristiano';
+        container.appendChild(scoreC);
 
-        container.setAttribute('color', 'black');
-        score = document.createElement('h2');
-        score.setAttribute('id', 'cristiano-score');
-        score.innerText = '0';
-        container.appendChild(score);
+        scoreM = document.createElement('h2');
+        scoreM.setAttribute('id', 'messi-score');
+        scoreM.innerText = 'Messi';
+        container.appendChild(scoreM);
+
+        golC = document.createElement('h2');
+        golC.setAttribute('id', 'cristiano-gol');
+        golC.innerText = '0';
+        container.appendChild(golC);
+
+        golM = document.createElement('h2');
+        golM.setAttribute('id', 'messi-gol');
+        golM.innerText = '0';
+        container.appendChild(golM);
 
 
         // cristiano.remove();
@@ -378,12 +391,17 @@ function main () {
 
     function messiWins() {
         stadium.remove();
+        scoreC.remove();
+        scoreM.remove();
+        golM.remove();
+        golC.remove();
         messi = document.createElement('div');
         messi.setAttribute('id', 'messi-wins');
         container.appendChild(messi);
 
+
         messiImg = document.createElement('img');
-        messiImg.setAttribute('src', 'https://media.giphy.com/media/IpKxfPy33hMRy/giphy.gif');
+        messiImg.setAttribute('src', 'https://media.giphy.com/media/xUA7aT4k7JLXH71zG0/giphy.gif');
         messiImg.setAttribute('height', '700')
         messiImg.setAttribute('width', '1300')
         messi.appendChild(messiImg);
@@ -397,6 +415,11 @@ function main () {
 
     function cristianoWins() {
         stadium.remove();
+        scoreC.remove();
+        scoreM.remove();
+        golM.remove();
+        golC.remove();
+        
         cristiano = document.createElement('div');
         cristiano.setAttribute('id', 'cristiano-wins');
         container.appendChild(cristiano);
