@@ -210,7 +210,7 @@ function main () {
         container.appendChild(stadium);
 
         stadiumImg = document.createElement('img');
-        stadiumImg.setAttribute('src', './images/Diseño sin título (2).png');
+        stadiumImg.setAttribute('src', './images/stadium.png');
         stadiumImg.setAttribute('height', '650')
         stadiumImg.setAttribute('width', '1600')
         stadium.appendChild(stadiumImg);
