@@ -14,13 +14,20 @@ function Ball (ctx) {
 Ball.prototype.draw = function () {
     var self = this;
     // self.ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // self.ctx.drawImage(self.getImages('images/ball.png'), self.positionX -10, self.positionY - 50, 50, 80);
+    self.ctx.drawImage(self.getBall('images/ball.png'), self.positionX -10, self.positionY - 7, 20, 20);
     // self.ctx.fillRect (self.position.x, self.position.y, self.size.width, self.size.height);
     self.ctx.beginPath();
-    self.ctx.arc(self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI);
+    // self.ctx.arc(self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI);
     self.ctx.fill();
     self.ctx.closePath();
   };
+
+  Ball.prototype.getBall = function (filepath) {
+    var self = this;
+    var img = new Image();
+    img.src = filepath;
+    return img;
+}   
 
 // Ball.prototype.move = function() {
 //     var self = this;
