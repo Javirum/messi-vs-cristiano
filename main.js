@@ -79,6 +79,7 @@ function main () {
     var cristianoImg;
     var messiImg;
     var stadium;
+    var score;
     
    
 
@@ -124,7 +125,7 @@ function main () {
         // InstImg = document.backgroundImage = "url (/images)";
         backButton = document.createElement('button');
         backButton.setAttribute('id', 'back-button');
-        backButton.innerText = 'Back'
+        backButton.innerText = 'Back';
         container.appendChild(backButton);
         backButton.addEventListener('click', buildSplash);
         instructionsHeader = document.createElement('h1');
@@ -219,7 +220,20 @@ function main () {
         canvas.setAttribute('width', canvasSize.width)
         canvas.setAttribute('height', canvasSize.height)
         container.appendChild(canvas);
+        
         container.setAttribute('color', 'black');
+        score = document.createElement('h2');
+        score.setAttribute('id', 'score');
+        score.innerText = 'Cristiano | Messi';
+        container.appendChild(score);
+
+        container.setAttribute('color', 'black');
+        score = document.createElement('h2');
+        score.setAttribute('id', 'cristiano-score');
+        score.innerText = '0';
+        container.appendChild(score);
+
+
         // cristiano.remove();
         // messi.remove();
 

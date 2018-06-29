@@ -21,31 +21,32 @@ function Player(
 
 //   this.image = new Image;
 //   this.image.src = '../images/messi-canvas.png';
+
+//   this.image = new Image;
+//   this.image.src = '../images/Cristiano-Ronaldo-PNG-HD.png';
 }
 
 Player.prototype.draw = function() {
   var self = this;
   if (self.side === 'left') {
-    self.ctx.fillStyle = "red";
+    self.ctx.drawImage(self.getImages('images/cristiano.png'), self.positionX -10, self.positionY - 50, 50, 80);
   } else {
-    self.ctx.fillStyle = "blue";
+    self.ctx.drawImage(self.getImages('images/messi.png'), self.positionX - 10, self.positionY -55, 50, 80);
   }  
   self.ctx.beginPath();
-  self.ctx.arc(self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI);
-//   self.ctx.drawImage(self.image, self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI)
+//   self.ctx.arc(self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI);
+  // self.ctx.fillRect(self.positionX - self.radius, self.positionY - self.radius, self.radius * 2, self.radius * 2);
   self.ctx.fill();
   self.ctx.closePath();
 
 };
 
-// Player.prototype.getImages = function () {
-//     var self = this;
-//     // self.ctx.cristiano = new Image();
-//     // self.ctx.cristiano.src = '/images/Cristiano-Ronaldo-PNG-HD.png';
-
-//     self.messi = new Image();
-//     self.messi.src = '/images/messi-canvas.png';
-// }
+Player.prototype.getImages = function (filepath) {
+    var self = this;
+    var img = new Image();
+    img.src = filepath;
+    return img;
+}
 
 // Player.prototype.playerImage = function () {
 //     var self = this;

@@ -249,6 +249,19 @@ button:hover {
     height: 80%;
 }
 
+#inst-container {
+    background-image: url('images/jannes-glas-548485-unsplash.jpg');
+    display: cover;
+    background-repeat: no-repeat;
+}
+
+#score {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    color: yellow;
+}
+
 /* #cristiano-wins {
 background-image: url(https://media.giphy.com/media/xT1XGVp95GDPgFYmUE/giphy.gif);
 display: cover;

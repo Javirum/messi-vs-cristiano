@@ -59,6 +59,7 @@ Game.prototype.doFrame = function() {
 	// self.detectBallColission();
 	// Check Players Ball Collision -> Player vs ball
 	self.draw();
+	// self.ctx.drawImage(self.image, self.positionX, self.positionY)
 	// self.ball.moveball();
 	self.checkPlayerBallColission();
   self.checkIfEnded();

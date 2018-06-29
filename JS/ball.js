@@ -14,7 +14,7 @@ function Ball (ctx) {
 Ball.prototype.draw = function () {
     var self = this;
     // self.ctx.clearRect(0, 0, canvas.width, canvas.height);
-    self.ctx.fillStyle = 'black';
+    // self.ctx.drawImage(self.getImages('images/ball.png'), self.positionX -10, self.positionY - 50, 50, 80);
     // self.ctx.fillRect (self.position.x, self.position.y, self.size.width, self.size.height);
     self.ctx.beginPath();
     self.ctx.arc(self.positionX, self.positionY, self.radius, self.arcStartAngle, 2 * Math.PI);
